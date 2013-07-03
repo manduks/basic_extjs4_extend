@@ -32,10 +32,11 @@ Ext.define('JsTest.Presenter', {
 
     renderMessages: function () {
         var me = this;
-        if (!me.consumer) {
+        if (!me.consumer) { //check if the consumer exists
             alert("no consumer defined");
             return false;
         }
+        // we call the consumer methods
         me.consumer.getMessages();
         me.consumer.on('dataloaded', me.addMessagesToDOM, this);
         me.consumer.on('errorloading', me.errorLoadingMessages, this);
@@ -43,7 +44,7 @@ Ext.define('JsTest.Presenter', {
     addMessagesToDOM: function (c, data) {
         var me = this,
             html;
-
+        // for each message we do a html string to render in the target div
         Ext.each(data.messages, function (message) {
             html = [
                 '<div class="message">',
