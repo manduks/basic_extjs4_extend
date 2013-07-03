@@ -52,7 +52,7 @@ Ext.define('JsTest.Presenter', {
                 	'</span>',
                 '</div>'
             ].join('');
-            Ext.get(me.target).createChild(html);
+            Ext.fly(me.target).createChild(html);
         }, me);
         me.fireEvent('messagesdrawn', me);
     },
